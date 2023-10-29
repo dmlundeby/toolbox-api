@@ -6,7 +6,7 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: toolbox
+  IMAGE_NAME: ${{ github.repository_owner }}/toolbox
 
 jobs:
   build-and-push-image:
