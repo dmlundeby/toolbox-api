@@ -13,6 +13,12 @@ public class MainController : Controller
         return Ok("Hello World!");
     }
 
+    [HttpGet("echo")]
+    public ActionResult<string> Echo([FromQuery] string message)
+    {
+        return message;
+    }
+
     [HttpGet("weather")]
     public IEnumerable<WeatherForecast> Weather()
     {
@@ -25,11 +31,5 @@ public class MainController : Controller
             Random.Shared.Next(-20, 55),
             summaries[Random.Shared.Next(summaries.Length)]
         ));
-    }
-
-    [HttpGet("echo")]
-    public ActionResult<string> Echo([FromQuery] string message)
-    {
-        return message;
     }
 }
