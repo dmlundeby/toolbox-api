@@ -39,4 +39,11 @@ public class MainController : Controller
         await Task.Delay((int)(seconds * 1000));
         return $"Waited for {seconds:0.##} seconds";
     }
+
+    [HttpGet("block")]
+    public string Block([FromQuery] double seconds)
+    {
+        Thread.Sleep((int)(seconds * 1000));
+        return $"Blocked for {seconds:0.##} seconds";
+    }
 }
