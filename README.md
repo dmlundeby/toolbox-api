@@ -1,19 +1,9 @@
 # Toolbox API Docker image
 
-Swagger docs URL: http://localhost:5172/swagger/index.html
+Docker image with toolbox API written in C# (ASP.NET Core), useful for testing.
 
-Dev commands:
+Start dev version locally: `docker compose -f docker-compose.debug.yml up --build`
 
-```sh
-docker build -t toolbox-dev --build-arg="configuration=Debug" .
-docker run -d -p 5172:5172 -e ASPNETCORE_ENVIRONMENT=Development --name toolbox-dev toolbox-dev
-docker stop toolbox-dev && docker rm toolbox-dev && docker rmi toolbox-dev
-```
+Start prod version locally: `docker compose up --build`
 
-Prod commands:
-
-```sh
-docker build -t toolbox .
-docker run -d -p 5172:5172 --name toolbox toolbox
-docker stop toolbox && docker rm toolbox && docker rmi toolbox
-```
+When using the dev version, Swagger docs can found at http://localhost:5172/swagger/index.html.
