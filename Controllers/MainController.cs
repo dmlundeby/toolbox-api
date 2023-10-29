@@ -8,7 +8,7 @@ namespace Toolbox.Controllers;
 public class MainController : Controller
 {
     [HttpGet("hello")]
-    public IActionResult Hello()
+    public ActionResult<string> Hello()
     {
         return Ok("Hello World!");
     }
@@ -25,5 +25,11 @@ public class MainController : Controller
             Random.Shared.Next(-20, 55),
             summaries[Random.Shared.Next(summaries.Length)]
         ));
+    }
+
+    [HttpGet("echo")]
+    public ActionResult<string> Echo([FromQuery] string message)
+    {
+        return message;
     }
 }
