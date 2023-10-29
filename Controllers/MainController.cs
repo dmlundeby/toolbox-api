@@ -32,4 +32,11 @@ public class MainController : Controller
             summaries[Random.Shared.Next(summaries.Length)]
         ));
     }
+
+    [HttpGet("wait")]
+    public async Task<string> Wait([FromQuery] double seconds)
+    {
+        await Task.Delay((int)(seconds * 1000));
+        return $"Waited for {seconds:0.##} seconds";
+    }
 }
