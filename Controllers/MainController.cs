@@ -46,4 +46,19 @@ public class MainController : Controller
         Thread.Sleep((int)(seconds * 1000));
         return $"Blocked for {seconds:0.##} seconds";
     }
+
+    [HttpGet("pi")]
+    public double Pi([FromQuery] int iterations)
+    {
+        var x = 1.0;
+        for (var i = 1; i < iterations + 1; i++)
+        {
+            var d = 2 * i + 1;
+            if (i % 2 == 1)
+                x -= 1.0 / d;
+            else
+                x += 1.0 / d;
+        }
+        return x * 4;
+    }
 }
